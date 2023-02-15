@@ -1,0 +1,129 @@
+
+.widget__title {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    display: flex;
+    color: #262626;
+    align-items: center;
+    font-style: normal;
+	position: relative;
+}
+.widget__title svg, .widget__title img {
+    stroke: #a81d1d;
+	margin: 0 8px;
+}
+.most__read__main__title{
+	display: flex;
+}
+.most__read__title {
+	font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    margin: 0;
+	grid-column: 3 / 4;
+}
+
+.most__read__main__title img, .most__read__main__title figure {
+	min-height: 32px;
+	min-width: 32px;
+}
+.most__read .widget__title{
+	margin: 0;
+    margin-left: 8px;
+}
+.most__read .widget__title figure{
+	display: flex;
+    align-items: center;
+}
+.most__read .widget__title img{
+	margin: 0 8px 0 0;
+}
+.most__read__list {
+    padding-left: 0;
+	margin: 0;
+}
+.most__read__list li {
+    counter-increment: li;
+	display:grid;
+	grid-template-columns: 32px 4px auto;
+	list-style: none;
+}
+.most__read__list li a:hover {
+    color: #CC0000;
+}
+.most__read__item {
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 400;
+	color: #4D4D4D;
+	margin-top: 16px;
+}
+.most__read__item::before {
+    color: #a81d1d;
+	line-height: 18px;
+    font-size: 14px;
+    font-weight: 500;
+    content: counter(li) " ";
+	grid-column: 1 / 2;
+	text-align: center;
+}
+.sidebar__item--ad{
+	width: 300px;
+	height: 600px;
+	margin-top: 64px;
+	position: sticky;
+	top: 114px;
+	z-index: 999;
+}
+
+.sidebar__item--ad-faq {
+	margin: 140px auto 0 auto;
+	width: 970px;
+	min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.single .post__sidebar{
+    padding-bottom: 48px;
+}
+
+@media (max-width:1180px) and (min-width:991px) {
+	.sidebar__item--ad {width:100%;}
+}
+
+@media (max-width: 991px){
+	.post__sidebar.col__sidebar {
+		width: 100vw;
+		background-color: #fff;
+		border-top: 1px solid #E6E6E6;
+		padding: 32px 16px 30px 16px;
+		margin: 0 8px 0 -16px;
+	}
+	.market__row .post__sidebar.col__sidebar {
+		padding: 32px 0;
+		margin: 0;
+		align-self: center;
+	}
+	.widget__title{
+		margin-top:0;
+	}
+	.sidebar__item--ad-faq,
+	.sidebar__item--ad {
+		display: none;
+	}
+	.most__read__title {
+		line-height: 16px;
+	}
+	.most__read__item::before {
+		line-height: 16px;
+	    text-align: center;
+	}
+	.latest__news .post__sidebar.col__sidebar {
+		display: none;
+	}
+
+}

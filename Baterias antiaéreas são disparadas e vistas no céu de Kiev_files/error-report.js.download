@@ -1,0 +1,84 @@
+let container_form = document.getElementsByClassName('lightbox-error-report');
+const formHtml = document.getElementById('lightbox-error-report__form');
+let closeButton = document.getElementsByClassName('lightbox-error-report__close');
+let openButton = document.getElementsByClassName('lightbox-error-report__openModal');
+
+/* ---------------------- Trata o Formulário -------------------------- */
+async function postFormDataAsJson({url, formData}) {
+    const plainFormData = Object.fromEntries(formData.entries());
+    const formDataJsonString = JSON.stringify(plainFormData);
+
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        },
+        body: formDataJsonString,
+    }
+
+    const response = await fetch(url, fetchOptions);
+
+    if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(errorMessage);
+    }   
+
+    return response.json();
+}
+
+
+/* ---------------------- Post do Formulário -------------------------- */
+async function hendleFormSubmit(event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const url = form.action;
+
+    try {
+        const formData = new FormData(form);
+        const responseData = await postFormDataAsJson({ url, formData });
+        console.log({responseData});
+
+        if (responseData.status === 'ok') {
+            mensagemSucesso();
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+/*------------ Submit Form ---------------------------------------------*/
+formHtml.addEventListener('submit', hendleFormSubmit);
+
+
+/*--------------- Mensagem de sucesso ----------------------------------*/
+function mensagemSucesso() {
+    document.getElementById('lightbox-error-report__sucesso').style.display = 'flex';
+}
+
+
+/* -------------- Open/Close Modal -------------------------------------*/
+var closeModal = function(event) {
+    event.preventDefault();
+    container_form[0].style.display = "none";
+}
+
+var openModal = function(event) {
+    event.preventDefault();
+    container_form[0].style.display = "flex";
+    document.getElementById('lightbox-error-report__sucesso').style.display = 'none';
+    formHtml.reset();
+}
+
+
+/*-------------- Lop nos botões de  modal ----------------------------- */
+for (var i = 0; i < closeButton.length; i++) {
+    closeButton[i].addEventListener('click', closeModal);
+}
+
+for (var i = 0; i < openButton.length; i++) {
+    openButton[i].addEventListener('click', openModal);
+}

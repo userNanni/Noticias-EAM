@@ -1,0 +1,1 @@
+(()=>{"use strict";var t=window.location.href,a=new URL(t),s=a.searchParams.get("skin"),i=a.searchParams.get("statistic"),e=a.searchParams.get("urlAudio"),r=a.searchParams.get("title");AP.init({skin:s,statistic:i,urlAudio:e,title:r})})();

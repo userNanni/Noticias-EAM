@@ -1,0 +1,62 @@
+.translated_stamp {
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    margin-top: 30px;
+    align-items: center;
+    padding:28px 32px;
+    background: #fff;
+    position:relative;
+}
+
+.translated_stamp a {
+    position:absolute;
+    display:block;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.translated_stamp .translated_logo {
+    max-width:77px !important;
+    width: 77px !important;
+}
+
+.translated_stamp .translated_logo img {
+    margin:0 !important;
+    max-width:77px !important;
+}
+
+.translated_stamp_text {
+    margin:0;
+    font-size:12px !important;
+    flex:1;
+    line-height: 18px !important;
+}
+
+.translated_stamp_right {
+    display: flex;
+    align-items: center;
+} 
+
+.translated_stamp_subtext {
+    margin:0;
+    font-size:12px !important;
+    margin-left:16px;
+    margin-right: 8px;
+}
+
+
+@media (max-width:991px) {
+    .translated_stamp {
+        padding:16px;
+    }
+    .translated_stamp_text, .translated_stamp_right {
+        min-width: 100%;
+    }
+    .translated_stamp_right {
+        margin-top: 8px;
+    }
+
+}

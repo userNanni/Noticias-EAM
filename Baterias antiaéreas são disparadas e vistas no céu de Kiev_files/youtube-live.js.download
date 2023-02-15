@@ -1,0 +1,146 @@
+let pfp_default = '{"adsConfig":{"adTagParameters":{"iu":"/21920083859/web/default_ui"}},"relatedChannels":["UC6WLCEXdr_IU4DB5V7sPkzw","UC7f35v8GI1O_f6x2PfeOutQ","UCbrVBUVa2bwYRofc-lVeAnA"]}'
+let player = {};
+
+function isApple(agent) {
+  return (/iPhone|iPad|iPod/i.test(agent));
+}
+
+var simulateClick = function (elem) {
+	// Create our event (with options)
+  if ( typeof(YT) === 'undefined'){ 
+    setTimeout( function () {
+      simulateClick(elem);
+    }, 500 );
+  } else {
+	var evt = new MouseEvent('click', {
+		bubbles: true,
+		cancelable: true,
+		view: window
+	});
+	// If cancelled, don't dispatch our event
+	var canceled = !elem.dispatchEvent(evt);
+  }
+};
+
+if (document.querySelectorAll('.cnn.component-video').length > 0){
+  let tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  let firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+initOthers = function() {
+  if (document.querySelectorAll('.cnn.component-video').length > 0){
+    for (const elem of document.querySelectorAll('.cnn.component-video')){
+      elem.addEventListener('click', function(e){
+        var t = e.target.closest(".component-video");
+        if (!t) throw new Error("Elements with a .js-video-play button must be wrapped in a .component-video class.");
+        var n = t.querySelector(".overlay-wrapper"),
+          r = t.querySelector(".video-player-wrapper"),
+          i = r.dataset.youtubeId;
+          w = typeof(r.dataset.youtubeWidth) !== 'undefined' ? r.dataset.youtubeWidth : '640px';
+          h = typeof(r.dataset.youtubeHeight) !== 'undefined' ? r.dataset.youtubeHeight  : '360px';
+          u = typeof(r.dataset.youtubeUi) !== 'undefined' ? r.dataset.youtubeUi  : '';
+          m = typeof(r.dataset.youtubeMute) !== 'undefined' ? r.dataset.youtubeMute  : 0;
+          p = pfp_default.replace('default_ui', u);
+          player[u] = new YT.Player(r, {
+            width: w,
+            height: h,
+            videoId: i,
+            playerVars: {enablejsapi: 1, autoplay: 1, embed_config: p },
+            events: {
+              'onStateChange': onPlayerStateChange,
+              'onReady': function(e) {
+                  (1 == e.target.h.dataset.youtubeMute) ? e.target.mute() : '';
+                  e.target.playVideo();
+                  e.target.h.closest(".component-video").querySelector(".overlay-wrapper").classList.toggle("overlay-wrapper-hidden");
+              }
+            }
+          })
+      });
+      ('1' === elem.querySelector(".video-player-wrapper").dataset.youtubePlay) ? simulateClick(elem) : '' ;    
+    };
+  }
+}
+
+initApple =  function(){  
+  if (document.querySelectorAll('.cnn.component-video').length > 0){
+    if ( typeof(YT) === 'undefined'){ 
+      setTimeout( function () {
+        initApple();
+      }, 500 );
+    } else {
+      var observador = new IntersectionObserver(function(entries) {
+      entries.forEach(function (entry) { //loop em todos os elementos atingidos
+      const {isIntersecting, intersectionRatio} = entry;
+      if (isIntersecting === true || intersectionRatio > 0) {
+              e = entry;
+              var t = e.target.closest(".component-video");
+              if (!t) throw new Error("Elements with a .js-video-play button must be wrapped in a .component-video class.");
+              var n = t.querySelector(".overlay-wrapper"),
+                r = t.querySelector(".video-player-wrapper"),
+                i = r.dataset.youtubeId;
+                w = typeof(r.dataset.youtubeWidth) !== 'undefined' ? r.dataset.youtubeWidth : '640px';
+                h = typeof(r.dataset.youtubeHeight) !== 'undefined' ? r.dataset.youtubeHeight  : '360px';
+                u = typeof(r.dataset.youtubeUi) !== 'undefined' ? r.dataset.youtubeUi  : '';
+                m = typeof(r.dataset.youtubeMute) !== 'undefined' ? r.dataset.youtubeMute  : 0;
+                p = pfp_default.replace('default_ui', u);
+                player[u] = new YT.Player(r, {
+                  width: w,
+                  height: h,
+                  videoId: i,
+                  playerVars: {enablejsapi: 1, autoplay: r.dataset.youtubePlay, embed_config: p },
+                  events: {
+                    'onStateChange': onPlayerStateChange,
+                    'onReady': function(e) {
+                        (1 == e.target.h.dataset.youtubeMute) ? e.target.mute() : '';
+                        (1 == e.target.h.dataset.youtubePlay) ? e.target.playVideo() : '';
+                        e.target.h.closest(".component-video").querySelector(".overlay-wrapper").classList.toggle("overlay-wrapper-hidden");
+                    }
+                  }
+                })
+              observador.unobserve(entry.target); // se você só precisar do event uma vez utilize essa linha
+              }
+          });
+    }, {
+    rootMargin: '400px'
+    });
+
+      for (const elem of document.querySelectorAll('.cnn.component-video')){
+        observador.observe( elem );
+      }
+    }
+  }
+}
+
+function onPlayerStateChange(event) {   
+  let target = event.target.h.dataset.youtubeUi;
+
+  for (const [key] of Object.entries(player)) {
+    if (target !== key) {
+      if (  (player[target].getPlayerState() === 1 && player[key].getPlayerState() === 1) ||
+            (player[target].getPlayerState() === -1 && player[key].getPlayerState() === -1) ||
+            (player[target].getPlayerState() === 1 && player[key].getPlayerState() === -1)  )
+      {
+        player[key].stopVideo();
+        player[key].clearVideo();
+      }
+    }
+  }
+
+  player['header-aovivo'] && player['header-aovivo'].getPlayerState() === 1 ||
+  player['sidebar-aovivo'] && player['sidebar-aovivo'].getPlayerState() === 1 ?
+  livePulse(true) : livePulse(false);
+}
+
+function livePulse(activate) {
+  if (activate === true) {
+      document.querySelector('.header__live .button__live').classList.add('button__live--pulse');
+  }
+  
+  if (activate === false) {
+      document.querySelector('.header__live .button__live').classList.remove('button__live--pulse');
+  }    
+}
+
+isApple(navigator.userAgent) ? initApple() : initOthers();

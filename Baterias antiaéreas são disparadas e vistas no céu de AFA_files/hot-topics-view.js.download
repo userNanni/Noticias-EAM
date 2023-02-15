@@ -1,0 +1,17 @@
+document.addEventListener( 'DOMContentLoaded', function() {
+	const HotTopics = document.getElementsByClassName("hot__content");
+	for (let i = 0; i < HotTopics.length; i++) {
+	  new Splide( HotTopics[i], {
+		type   : 'loop',
+		drag   : 'free',
+		gap: '64px', 
+		arrows : false,
+		autoWidth: true,
+		pagination : false,
+		autoScroll: {
+		  speed: 0.5,
+		  rewind: true,
+		},
+	  } ).mount( window.splide.Extensions );
+	}
+  } );

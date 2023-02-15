@@ -1,0 +1,167 @@
+.lightbox-error-report {
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999999;
+    width:100vw;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-error-report__openModal {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: underline;
+    margin-top: 32px;
+}
+
+.lightbox-error-report__closeButton--header {
+    position: absolute;
+    right:21px;
+    top: 21px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.lightbox-error-report:before {
+    content:'';
+    position: absolute;
+    left:0;
+    top:0;
+    display: block;
+    background: rgba(0, 0, 0, 0.767);
+    z-index: 1;
+    width:100vw;
+    height:100vh;
+}
+
+.lightbox-error-report__form {
+    background: #fff;
+    width:732px;
+    height: 578px;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+    padding:40px 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+}
+
+.lightbox-error-report__row {
+    flex:1;
+    min-width: 100%;
+}
+
+.lightbox-error-report h3 {
+    margin: 0;
+    font-size:23px;
+    color:#A81D1D;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.lightbox-error-report p {
+    margin:0;
+    font-size:16px;
+    text-align: center;
+    margin-bottom: 20px;
+    color:#4D4D4D;
+}
+
+.lightbox-error-report input, .lightbox-error-report textarea {
+    width:100%;
+    height:46px;
+    background: #fff;
+    border: 1px solid #E6E6E6;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 12px;
+    font-size:16px;
+    font-family: 'CNN Sans Display',sans-serif;
+    margin-bottom: 16px;
+}
+
+.lightbox-error-report textarea {
+    height:112px;
+}
+
+.lightbox-error-report button {
+    display: block;
+    margin:auto;
+    -webkit-appearance: none;
+    background: transparent;
+    border:0;
+    font-family: 'CNN Sans Display',sans-serif;
+}
+
+.lightbox-error-report button[type="submit"] {
+    background: #A81D1D;
+    color:#fff;
+    border-radius: 8px;
+    width: 149px;
+    height: 40px;
+}
+
+.lightbox-error-report button[type="button"] {
+    margin-top: 40px;
+    border-bottom: 1px #2b2b2b solid;
+    width: initial;
+    padding: 0;
+}
+
+.lightbox-error-report__closeButton--footer {
+    position: absolute;
+    bottom:40px;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.lightbox-error-report__sucesso {    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    flex-wrap: wrap;
+    border-radius: 10px;
+}
+
+.lightbox-error-report__sucesso div {
+    text-align: center;
+}
+
+.lightbox-error-report__sucesso svg {
+    margin-bottom: 20px;
+}
+
+.lightbox-error-report__sucesso p {
+    font-size:22px;
+    font-weight: 300;
+}
+
+@media (max-width:991px) {
+    .lightbox-error-report__form {
+        padding: 30px 20px;
+    }
+    .lightbox-error-report button[type="button"] {
+        margin-top: 20px;
+    }
+    .lightbox-error-report__sucesso p {
+        font-size:16px
+    }
+}

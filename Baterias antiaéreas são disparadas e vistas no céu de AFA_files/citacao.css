@@ -1,0 +1,165 @@
+blockquote.cnnbrasil-quote-box.with-author {
+    margin: 40px 0 40px 0;
+}
+blockquote.cnnbrasil-quote-box.with-author + p {
+    margin-top: 58px;
+}
+.cnnbrasil-quote-box.with-author p{
+    margin: 0 64px 0 64px;
+    color: #4D4D4D;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+}
+strong.author {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 16px;
+    margin-right: 48px;
+    color: #4D4D4D;
+}
+.cnnbrasil-quote-box.with-author{
+    width: 100%;
+}
+.cnnbrasil-quote-box-quite.with-author-quite{
+    width: 50%;
+    margin: 40px 24px 40px 24px !important;
+}
+.cnnbrasil-quote-box.with-author::before{
+    content: url(/wp-content/themes/master-theme/assets/img/citacao_sup.svg);
+    z-index: -2;
+    position: absolute;
+}
+.cnnbrasil-quote-box::after{
+    content: url(/wp-content/themes/master-theme/assets/img/citacao_inf.svg);
+    z-index: -2;
+    display: flex;
+    justify-content: flex-end;
+    margin: -64px 0 0 0;
+    z-index: 99;
+}
+
+@media (max-width: 991px){
+    blockquote.cnnbrasil-quote-box.with-author {
+        margin: 40px 0 40px 0;
+    }
+    .cnnbrasil-quote-box::after{
+        margin: -64px 20px 0 0;
+    }
+    .cnnbrasil-quote-box-quite.with-author-quite{
+        width: 100%;
+        margin: 40px 0 40px 0 !important;
+    }
+    .cnnbrasil-quote-box.with-author p{
+        font-size: 16px;
+        line-height: 24px;
+    }
+    strong.author {
+        font-weight: 200;
+        margin-right: 68px;
+    }
+}
+
+/* Citação live update */
+.post-type-card-content .post-type-quotation {
+    display: flex;
+    align-items: center;
+    margin-left: 70px;
+    margin-top: 24px;
+}
+
+.post-type-card-content .post-type-quotation figure {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    background: #d0d0d0;
+    margin-right: 8px;
+}
+
+.post-type-card-content .post-type-quotation figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.post-type-card-content .post-type-quotation strong {
+    font-family: "CNN Sans Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+    color: #464646;
+}
+
+
+.post-type-card-content.quotation {
+    position: relative;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 3px;
+}
+
+.post-type-card-content.quotation::after {
+    position: absolute;
+    content: url(../img/post_type_aspas.png);
+    top: 62px;
+    left: 50px;
+}
+
+.post-type-card-content.quotation h3::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background: #cc0000;
+    top: 0px;
+    right: 50px;
+}
+
+.post-type-card-content.quotation h3 {
+    position: relative;
+    font-style: italic;
+    padding: 0px 70px;
+}
+
+@media (max-width: 550px) {
+    .post-type-card .post-type-card-content.quotation::after {
+        left: 30px;
+    }
+
+    .post-type-card .post-type-card-content.quotation h3::before {
+        right: 20px;
+    }
+
+    .post-type-card .post-type-card-content.quotation h3 {
+        padding: 0px 40px;
+    }
+
+    .post-type-card .post-type-card-content .post-type-quotation {
+        margin-left: 40px;
+    }
+
+}
+
+@media (max-width: 425px) {
+    .post-type-card .post-type-card-content.quotation {
+        margin: 0px 25px;
+        padding: 40px 24px 40px 40px;
+    }
+
+    .post-type-card .post-type-card-content.quotation h3 {
+        padding: 0px 0px 0px 40px;
+    }
+
+    .post-type-card .post-type-card-content.quotation h3::before {
+        display: none;
+    }
+
+    .post-type-card .post-type-card-content .post-type-quotation {
+        margin-left: 0px;
+    }
+}

@@ -1,0 +1,21 @@
+var _tg = [{"oid": 75781,"li": 332251,"ci": 484984,"cw": -1,"ch": -1,"typ": "json","dnr": false,"iid": "m17344aa4866b7b0964d804a51f579a222ce67b9219","m": "hgam","ms": "h","cd": {
+  "paths": { "default": "/209606714/cnnbrasil", "suffixes": "TTR,FBK" },
+  "sizes": { "mobile": [], "default": [] },
+  "aps": true, "validateBid": true
+}
+},{"oid": 75781,"li": 332251,"ci": 484990,"cw": -1,"ch": -1,"typ": "json","dnr": false,"iid": "m000e2e0b321d5ccd246a85a66eff89a82e26b85fe0","m": "pgam","ms": "p","cd": {
+  "sizes": {
+    "mobile": [],
+    "default": []
+  },
+  "paths": {
+    "default": "",
+    "mobile": ""
+  },
+  "customTarget": ""
+}
+}];
+var _tgblk = { "m": 1, "iid": "m17344aa4866b7b0964d804a51f579a222ce67b9219"};
+setTimeout(function () {
+    document.close();
+}, 0);

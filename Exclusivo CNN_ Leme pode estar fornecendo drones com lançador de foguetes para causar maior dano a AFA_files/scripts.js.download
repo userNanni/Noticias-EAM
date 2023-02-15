@@ -1,0 +1,78 @@
+document.addEventListener("DOMContentLoaded", function(){
+    const debateLoader = document.querySelector('.cnn-load-cotacao');
+
+    const divCotacao = document.querySelector('.cnn_brasil_cotacao_awesome .cotacoes');
+    if(divCotacao){
+        recursive_get_cot(divCotacao);
+    }
+
+    function recursive_get_cot(divCotacao){
+
+        if(debateLoader){
+            debateLoader.classList.add('active');
+        }
+
+        (async () => {
+            const resAwesome = await fetch(cnncot_ajax.ajax_awesome_endpoint, {
+                headers: { Accept: 'application/json' },
+            }).catch(function(err) {
+                if(debateLoader){
+                    debateLoader.classList.remove('active');
+                }
+                console.error(err);
+            });
+
+            let CotUl = document.createElement('ul');
+
+            const json = await resAwesome.json();
+            Object.entries(json).forEach(([key, value]) => {
+                divCotacao.innerHTML = '';
+
+                let compraBid = arrow_identify_number('compra', value.var);
+                let vendaBid = arrow_identify_number('venda', value.var);
+
+                let CotLi = document.createElement('li');
+
+                let CotLiDiv = document.createElement('div');
+
+                let CotPcotacoesCompra = document.createElement('p');
+                CotPcotacoesCompra.classList.add('cotacoes__compra');
+                CotPcotacoesCompra.innerText = 'R$ '+value.ask;
+                let SpanCompra = document.createElement('span');
+                SpanCompra.classList.add(compraBid);
+                if (value.name.split('/')[0] == "Dólar Americano"){
+                    SpanCompra.innerText = "Dólar Comercial";
+                } else {
+                    SpanCompra.innerText = value.name.split('/')[0];
+                }
+                CotPcotacoesCompra.prepend(SpanCompra);
+                CotLiDiv.appendChild(CotPcotacoesCompra);
+
+                CotLi.appendChild(CotLiDiv);
+
+                CotUl.appendChild(CotLi);
+                divCotacao.appendChild(CotUl);
+            });
+
+        })();
+
+        if(debateLoader){
+            debateLoader.classList.remove('active');
+        }
+
+        let cacheTimer = (cnncot_ajax.ajax_timer_cache) ? cnncot_ajax.ajax_timer_cache*1000 : 5000;
+
+        setTimeout(function(){
+            recursive_get_cot(divCotacao);
+        }, cacheTimer);
+
+    }
+
+    function arrow_identify_number(type = null, val = null){
+        if(type === 'compra' && val === true || type === 'venda' && val === false){
+            return 'down';
+        }else if(type === 'venda' && val === true || type === 'compra' && val === false){
+            return 'up';
+        }
+    }
+});

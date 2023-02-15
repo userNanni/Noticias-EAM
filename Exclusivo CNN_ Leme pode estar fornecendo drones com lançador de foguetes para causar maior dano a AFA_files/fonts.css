@@ -1,0 +1,149 @@
+/*-------------------------------------------*\
+! FONTS
+\*-------------------------------------------*/
+@font-face {
+    font-family: "CNN Sans Display";
+    src: url("../fonts/cnn-sans-display/400/cnnsans-regular.eot");
+    src: url("../fonts/cnn-sans-display/400/cnnsans-regular.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/cnn-sans-display/400/cnnsans-regular.woff2")
+            format("woff2"),
+        url("../fonts/cnn-sans-display/400/cnnsans-regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CNN Sans Display";
+    src: url("../fonts/cnn-sans-display/500/cnnsans-medium.eot");
+    src: url("../fonts/cnn-sans-display/500/cnnsans-medium.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/cnn-sans-display/500/cnnsans-medium.woff2")
+            format("woff2"),
+        url("../fonts/cnn-sans-display/500/cnnsans-medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CNN Sans Display";
+    src: url("../fonts/cnn-sans-display/700/cnnsans-bold.eot");
+    src: url("../fonts/cnn-sans-display/700/cnnsans-bold.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/cnn-sans-display/700/cnnsans-bold.woff2") format("woff2"),
+        url("../fonts/cnn-sans-display/700/cnnsans-bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CNN Sans Display";
+    src: url("../fonts/cnn-sans-display/300/cnnsans-light.eot");
+    src: url("../fonts/cnn-sans-display/300/cnnsans-light.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/cnn-sans-display/300/cnnsans-light.woff2") format("woff2"),
+        url("../fonts/cnn-sans-display/300/cnnsans-light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CNN Sans Condensed";
+    src: url("../fonts/cnn-sans-condensed/CNNSansW04-Condensed.woff2")
+            format("woff2"),
+        url("../fonts/cnn-sans-condensed/CNNSansW04-Condensed.woff")
+            format("woff"),
+        url("../fonts/cnn-sans-condensed/CNNSansW04-Condensed.ttf")
+            format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CNN Sans Condensed Medium";
+    src: url("../fonts/cnn-sans-condensed/CNNSans-CondensedMedium.woff2")
+            format("woff2"),
+        url("../fonts/cnn-sans-condensed/CNNSans-CondensedMedium.woff")
+            format("woff"),
+        url("../fonts/cnn-sans-condensed/CNNSans-CondensedMedium.ttf")
+            format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CNN Sans Condensed Light";
+    src: url("../fonts/cnn-sans-condensed/CNNSans-CondensedLight.woff2")
+            format("woff2"),
+        url("../fonts/cnn-sans-condensed/CNNSans-CondensedLight.woff")
+            format("woff"),
+        url("../fonts/cnn-sans-condensed/CNNSans-CondensedLight.ttf")
+            format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CNN Sans Condensed Bold";
+    src: url("../fonts/cnn-sans-condensed/CNNSansW04-CondensedBold.woff2")
+            format("woff2"),
+        url("../fonts/cnn-sans-condensed/CNNSansW04-CondensedBold.woff")
+            format("woff"),
+        url("../fonts/cnn-sans-condensed/CNNSansW04-CondensedBold.ttf")
+            format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'bebas_neuebold';
+    src: url('../fonts/bebas-neue/bebasneue-bold-webfont.woff2') format('woff2'),
+         url('../fonts/bebas-neue/bebasneue-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bebas_neuebook';
+    src: url('../fonts/bebas-neue/bebasneue-book-webfont.woff2') format('woff2'),
+         url('../fonts/bebas-neue/bebasneue-book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bebas_neuelight';
+    src: url('../fonts/bebas-neue/bebasneue-light-webfont.woff2') format('woff2'),
+         url('../fonts/bebas-neue/bebasneue-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: url('../fonts/bebas-neue/bebasneue-regular-webfont.woff2') format('woff2'),
+         url('../fonts/bebas-neue/bebasneue-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bebas_neuethin';
+    src: url('../fonts/bebas-neue/bebasneue-thin-webfont.woff2') format('woff2'),
+         url('../fonts/bebas-neue/bebasneue-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

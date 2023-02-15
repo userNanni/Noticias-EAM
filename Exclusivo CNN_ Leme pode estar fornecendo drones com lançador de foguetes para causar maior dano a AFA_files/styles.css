@@ -1,0 +1,120 @@
+.cnn_brasil_cotacao_awesome .cnn_brasil_cotacao_awesome_content{
+    position: relative;
+}
+
+.cnn_brasil_cotacao_awesome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cnn_brasil_cotacao_awesome .cnn-load-cotacao .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.cnn_brasil_cotacao_awesome .cnn-load-cotacao{
+    display: none;
+    transition: .3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255,255,255,0.5%);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cnn_brasil_cotacao_awesome .cnn-load-cotacao.active{
+    display: flex;
+}
+
+.cnn_brasil_cotacao_awesome .cnn-load-cotacao .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    margin: 2px;
+    border: 2px solid #c00;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #c00 transparent transparent transparent;
+}
+
+.cnn_brasil_cotacao_awesome .cnn-load-cotacao .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.cnn_brasil_cotacao_awesome .cnn-load-cotacao .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.cnn_brasil_cotacao_awesome .cnn-load-cotacao .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden-observer header .quotation {
+    display: none;
+}
+
+.cnn_brasil_cotacao_awesome .cotacoes ul {
+    display: flex;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.cnn_brasil_cotacao_awesome .cotacoes .title-cotacao {
+    font-size: 12px;
+    line-height: 14px;
+    margin: 0;
+}
+
+.cnn_brasil_cotacao_awesome .cotacoes li div {
+	display: flex;
+}
+
+.cnn_brasil_cotacao_awesome .cotacoes__venda {
+    margin-right: 6px;
+}
+
+.cnn_brasil_cotacao_awesome .cotacoes .title-cotacao,
+.cnn_brasil_cotacao_awesome .cotacoes p,
+.cnn_brasil_cotacao_awesome .cotacoes p span {
+    font-weight: 400;
+    color: #4D4D4D;
+    font-style: normal;
+}
+
+.cnn_brasil_cotacao_awesome .cotacoes p {
+    display: block;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.cnn_brasil_cotacao_awesome .cotacoes p:nth-child(2) {
+    margin-right: 0;
+}
+
+.cnn_brasil_cotacao_awesome .cotacoes p span {
+    display: flex;
+    font-size: 12px;
+    line-height: 16px;
+    color: #00A67A;
+}
